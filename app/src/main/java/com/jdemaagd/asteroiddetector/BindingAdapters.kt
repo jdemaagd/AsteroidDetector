@@ -1,8 +1,15 @@
 package com.jdemaagd.asteroiddetector
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
+
+import com.squareup.picasso.Picasso
+import com.jdemaagd.asteroiddetector.main.AsteroidsAdapter
+import com.jdemaagd.asteroiddetector.models.Asteroid
 
 @BindingAdapter("statusIcon")
 fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
@@ -38,4 +45,23 @@ fun bindTextViewToKmUnit(textView: TextView, number: Double) {
 fun bindTextViewToDisplayVelocity(textView: TextView, number: Double) {
     val context = textView.context
     textView.text = String.format(context.getString(R.string.km_s_unit_format), number)
+}
+
+@BindingAdapter("imageOfDay")
+fun bindImageViewToPictureOfDay(imageView: ImageView, url: String?) {
+    Picasso.get().load(url)
+        .placeholder(R.drawable.placeholder_image_of_day)
+        .error(R.drawable.placeholder_image_of_day)
+        .into(imageView)
+}
+
+@BindingAdapter("asteroidList")
+fun bindRecyclerView(recyclerView: RecyclerView, asteroidList: List<Asteroid>?) {
+    val adapter: AsteroidsAdapter = recyclerView.adapter as AsteroidsAdapter
+    adapter.submitList(asteroidList)
+}
+
+@BindingAdapter("goneIfNotNull")
+fun goneIfNotNull(view: View, it: Any?) {
+    view.visibility = if (it != null) View.GONE else View.VISIBLE
 }

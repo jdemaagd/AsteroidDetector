@@ -1,7 +1,9 @@
-package com.jdemaagd.asteroiddetector
+package com.jdemaagd.asteroiddetector.main
 
 import android.os.Bundle
+
 import androidx.appcompat.app.AppCompatActivity
+import com.jdemaagd.asteroiddetector.R
 
 class MainActivity : AppCompatActivity() {
 
