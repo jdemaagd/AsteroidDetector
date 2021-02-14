@@ -1,6 +1,7 @@
-package com.jdemaagd.asteroiddetector
+package com.jdemaagd.asteroiddetector.models
 
 import android.os.Parcelable
+
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

@@ -12,6 +12,7 @@
         <action
             android:id="@+id/action_showDetail"
             app:destination="@id/detailFragment" />
+
     </fragment>
 
     <fragment
@@ -22,7 +23,8 @@
 
         <argument
             android:name="selectedAsteroid"
-            app:argType="com.jdemaagd.asteroiddetector.Asteroid"/>
+            app:argType="com.jdemaagd.asteroiddetector.models.Asteroid" />
+
     </fragment>
 
 </navigation>
